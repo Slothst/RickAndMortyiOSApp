@@ -12,7 +12,7 @@ struct RMGetAllCharactersResponse: Codable {
         let count: Int
         let pages: Int
         let next: String?
-        let previous: String?
+        let prev: String?
     }
     
     let info: Info
