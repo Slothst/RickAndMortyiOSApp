@@ -28,7 +28,7 @@ final class RMCharacterListViewViewModel: NSObject {
                     characterStatus: character.status,
                     characterImageUrl: URL(string: character.image)
                 )
-                if cellViewModels.contains(viewModel) {
+                if !cellViewModels.contains(viewModel) {
                     cellViewModels.append(viewModel)
                 }
             }
@@ -92,10 +92,12 @@ final class RMCharacterListViewViewModel: NSObject {
                         return IndexPath(row: $0, section: 0)
                     }
                     strongSelf.characters.append(contentsOf: moreResults)
+                    
                     DispatchQueue.main.async {
                         strongSelf.delegate?.didLoadMoreCharacters(
                             with: indexPathsToAdd
                         )
+                        
                         strongSelf.isLoadingMoreCharacters = false
                     }
                 case .failure(let failure):

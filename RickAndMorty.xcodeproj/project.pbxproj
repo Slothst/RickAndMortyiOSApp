@@ -36,6 +36,7 @@
 		25E106D22B7FA2090075D34E /* RMCharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E106D12B7FA2090075D34E /* RMCharacterDetailView.swift */; };
 		25E106D42B7FA21B0075D34E /* RMCharacterDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E106D32B7FA21B0075D34E /* RMCharacterDetailViewViewModel.swift */; };
 		25E106D62B7FA5E90075D34E /* RMFooterLoadingCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E106D52B7FA5E90075D34E /* RMFooterLoadingCollectionReusableView.swift */; };
+		25E106D82B824C2B0075D34E /* RMImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E106D72B824C2B0075D34E /* RMImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		25E106D12B7FA2090075D34E /* RMCharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacterDetailView.swift; sourceTree = "<group>"; };
 		25E106D32B7FA21B0075D34E /* RMCharacterDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacterDetailViewViewModel.swift; sourceTree = "<group>"; };
 		25E106D52B7FA5E90075D34E /* RMFooterLoadingCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMFooterLoadingCollectionReusableView.swift; sourceTree = "<group>"; };
+		25E106D72B824C2B0075D34E /* RMImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 		25E1069F2B68E7A50075D34E /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				25E106D72B824C2B0075D34E /* RMImageLoader.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				25E1068C2B68E4640075D34E /* RMTabBarController.swift in Sources */,
 				25E106CB2B7CFF2D0075D34E /* RMCharacterCollectionViewCell.swift in Sources */,
 				25E106AF2B68E94A0075D34E /* RMEpisodeViewController.swift in Sources */,
+				25E106D82B824C2B0075D34E /* RMImageLoader.swift in Sources */,
 				25E106882B68E4640075D34E /* AppDelegate.swift in Sources */,
 				25E1068A2B68E4640075D34E /* SceneDelegate.swift in Sources */,
 				25E106B12B68E9640075D34E /* RMSettingsViewController.swift in Sources */,
