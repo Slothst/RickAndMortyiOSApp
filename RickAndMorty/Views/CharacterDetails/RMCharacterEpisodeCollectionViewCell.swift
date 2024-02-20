@@ -10,6 +10,8 @@ import UIKit
 class RMCharacterEpisodeCollectionViewCell: UICollectionViewCell {
     static let cellIdentifier = "RMCharacterEpisodeCollectionViewCell"
     
+    //MARK: - Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
