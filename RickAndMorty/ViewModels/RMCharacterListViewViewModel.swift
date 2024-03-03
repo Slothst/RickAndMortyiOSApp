@@ -74,37 +74,38 @@ final class RMCharacterListViewViewModel: NSObject {
         
         RMService.shared.execute(
             request,
-            expecting: RMGetAllCharactersResponse.self) { [weak self] result in
-                guard let strongSelf = self else {
-                    return
+            expecting: RMGetAllCharactersResponse.self
+        ) { [weak self] result in
+            guard let strongSelf = self else {
+                return
+            }
+            switch result {
+            case .success(let responseModel):
+                let moreResults = responseModel.results
+                let info = responseModel.info
+                strongSelf.apiInfo = info
+                
+                let originalCount = strongSelf.characters.count
+                let newCount = moreResults.count
+                let total = originalCount + newCount
+                let startingIndex = total - newCount
+                let indexPathsToAdd: [IndexPath] = Array(startingIndex..<(startingIndex + newCount)).compactMap {
+                    return IndexPath(row: $0, section: 0)
                 }
-                switch result {
-                case .success(let responseModel):
-                    let moreResults = responseModel.results
-                    let info = responseModel.info
-                    strongSelf.apiInfo = info
+                strongSelf.characters.append(contentsOf: moreResults)
+                
+                DispatchQueue.main.async {
+                    strongSelf.delegate?.didLoadMoreCharacters(
+                        with: indexPathsToAdd
+                    )
                     
-                    let originalCount = strongSelf.characters.count
-                    let newCount = moreResults.count
-                    let total = originalCount + newCount
-                    let startingIndex = total - newCount
-                    let indexPathsToAdd: [IndexPath] = Array(startingIndex..<(startingIndex + newCount)).compactMap {
-                        return IndexPath(row: $0, section: 0)
-                    }
-                    strongSelf.characters.append(contentsOf: moreResults)
-                    
-                    DispatchQueue.main.async {
-                        strongSelf.delegate?.didLoadMoreCharacters(
-                            with: indexPathsToAdd
-                        )
-                        
-                        strongSelf.isLoadingMoreCharacters = false
-                    }
-                case .failure(let failure):
-                    print(String(describing: failure))
                     strongSelf.isLoadingMoreCharacters = false
                 }
+            case .failure(let failure):
+                print(String(describing: failure))
+                strongSelf.isLoadingMoreCharacters = false
             }
+        }
     }
     
     public var shouldShowLoadMoreIndicator: Bool {
